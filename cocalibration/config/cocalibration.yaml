@@ -1,0 +1,97 @@
+switch:
+    ## Calibration and Optimization cost analysis
+    kOmniCamera: false # if true, calibrate the omnidirectional camera, otherwise calibrate the pinhole camera
+    kOmniLiDAR: false # if true, use mid-360 lidar, otherwise use avia or mid-40
+    kMultiSpotOpt: true
+    kRoughCalib: false # if the initial value have large deviation, please use the rough calib (grid search)
+    kCeresOpt: true # if true, start ceres optimization
+    kParamsAnalysis: false
+
+essential:
+    kLidarTopic: "/livox/lidar"
+    kNumSpot: 8 # -1: means run all the spots, other means run the specific spot index
+    # kDatasetName: "sustech_crf"
+    # kDatasetName: "sustech_rb1"
+    kDatasetName: "hku_6"
+    kNumIntrinsic: 5 # Pinhole camera: 5, Omni camera: 10
+    kImageRows: 2048
+    kImageCols: 2448
+    kFlatRows: 512
+    kFlatCols: 612
+    
+cocalib:
+    bw: [32.00, 16.00, 8.00, 4.00]
+    # initial extrinsic parameters
+    # Angle Axised # Ground Truth
+    # alpha: 2.1095  # 2.0837451 (radian)
+    # rx: 0.5502047  # 0.5820064
+    # ry: -0.5865196 # -0.5886401
+    # rz: 0.5943648  # 0.561045
+    # tx: 0.394366   # 0.00671375
+    # ty: 0.267218   # 0.0650754
+    # tz: -0.0581738 # -0.0141875
+    # range
+    #alpha_range: 0.2
+    #rx_range: 0.05
+    #ry_range: 0.05
+    #rz_range: 0.05
+    #tx_range: 0.40
+    #ty_range: 0.30
+    #tz_range: 0.20
+    # Ground Truth Value
+    alpha: 2.0837451
+    rx: 0.5820064
+    ry: -0.5886401
+    rz: 0.561045
+    tx: 0.00671375
+    ty: 0.0650754
+    tz: -0.0141875
+    alpha_range: 0.2
+    rx_range: 0.05
+    ry_range: 0.05
+    rz_range: 0.05
+    tx_range: 0.05
+    ty_range: 0.05
+    tz_range: 0.05
+    
+    # Pinhole camera initial intrinsics (if you want to calibrate the omni camera, please ignore the following parameters)
+    #f: 2569.0973988578257   # 2561.3
+    #cx: 1175.1204570705731  # 1180.2
+    #cy: 1043.301424743079  # 1035.9
+    #k1: -0.14628800008250162 # -0.1474
+    #k2: 0.11315567500684494 # 0.1150
+    # Ground Truth Value
+    f: 2561.3
+    cx: 1180.2
+    cy: 1035.9
+    k1: -0.1474
+    k2: 0.1150
+    
+    f_range: 15.0
+    cx_range: 15.0
+    cy_range: 15.0
+    k1_range: 0.05
+    k2_range: 0.05
+    # Omni camera initial intrinsics (if you need to calibrate the pinhole camera, please ignore the following parameters)
+    u0: 1023.00
+    v0: 1201.00
+    a0: 1937.487404 # 616.7214056132 * M_PI
+    a1: -616.7214056132
+    a2: 0.00
+    a3: 0.00
+    a4: 0.00
+    c: 1.00
+    d: 0.00
+    e: 0.00
+    # range
+    u0_range: 5.00
+    v0_range: 5.00
+    a0_range: 160.00
+    a1_range: 80.00
+    a2_range: 40.00
+    a3_range: 20.00
+    a4_range: 10.00
+    c_range: 0.01
+    d_range: 0.01
+    e_range: 0.01
+    
