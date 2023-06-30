@@ -68,54 +68,6 @@ Rename the accumulated non-repetitive scanned point cloud "full_fov_cloud.pcd", 
 Put the two raw files into ~/cocalibration/data/(dataset_name)/cocalibration directory.
 ### Config:
 Modify the parameters in the config file, cocalibration.yaml.
-### File stucture:
-```bash
-├── cocalibration
-│   ├── build
-│   ├── config
-│   │   └── cocalibration.yaml
-│   ├── data
-│   │   └── (dataset_name)
-│   │       └── cocalibration
-│   │           ├── edges
-│   │           │   ├── lidar_1_filtered.bmp
-│   │           │   ├── lidar_2_canny.bmp
-│   │           │   ├── lidar_edge_image.bmp
-│   │           │   ├── lidar_edge_cloud.pcd
-│   │           │   ├── omni_1_filtered.bmp
-│   │           │   ├── omni_2_canny.bmp
-│   │           │   └── omni_edge_image.bmp
-│   │           ├── results
-│   │           │   ├── fusion_image_init.bmp
-│   │           │   ├── fusion_image_(bandwidth).bmp
-│   │           │   ├── cocalib_init.txt
-│   │           │   └── cocalib_(bandwidth).txt
-│   │           ├── full_fov_cloud.pcd
-│   │           ├── flat_lidar_image.bmp
-│   │           └── hdr_image.bmp
-│   ├── launch
-│   │   └── cocalibration.launch
-│   ├── include
-│   │   ├── common_lib.h
-│   │   ├── define.h
-│   │   ├── lidar_process.h
-│   │   ├── omni_process.h
-│   │   └── optimization.h
-│   ├── python_scripts
-│   │   └── image_process
-│   │       ├── omni_image_mask.png
-│   │       ├── lidar_flat_image_mask.png
-│   │       └── edge_extraction.py
-│   ├── src
-│   │   ├── lidar_process.cpp
-│   │   ├── omni_process.cpp
-│   │   ├── optimization.cpp
-│   │   └── cocalibration.cpp
-│   ├── package.xml
-│   └── CMakeLists.txt
-├── ReadMe.md
-├── .git
-└── .gitignore
 ```
 ### Commands:
 ```
@@ -124,6 +76,3 @@ Modify the parameters in the config file, cocalibration.yaml.
     source ./devel/setup.bash
     roslaunch cocalibration cocalibration.launch
 ```
-
-## 5. Acknowledgements
-Thanks for [CamVox](https://github.com/ISEE-Technology/CamVox), [Livox-SDK](https://github.com/Livox-SDK/livox_camera_lidar_calibration), [OCamCalib MATLAB Toolbox](https://sites.google.com/site/scarabotix/ocamcalib-omnidirectional-camera-calibration-toolbox-for-matlab), [Fast-LIO](https://github.com/hku-mars/FAST_LIO), and thanks to the help of Wenquan Zhao, Xiao Huang, Jian Bai.
